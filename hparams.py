@@ -3,12 +3,12 @@
 
 # Here are the input and output data paths (Note: you can override wav_path in preprocess.py)
 wav_path = '/path/to/wav_files/'
-data_path = 'data/'
+data_path = './data/'
 
 # model ids are separate - that way you can use a new tts with an old wavernn and vice versa
 # NB: expect undefined behaviour if models were trained on different DSP settings
-voc_model_id = 'ljspeech_mol'
-tts_model_id = 'ljspeech_lsa_smooth_attention'
+voc_model_id = 'biaobei_raw'
+tts_model_id = 'biaobei_lsa_smooth_attention'
 
 # set this to True if you are only interested in WaveRNN
 ignore_tts = False
@@ -73,7 +73,7 @@ tts_lstm_dims = 512
 tts_postnet_K = 8
 tts_num_highways = 4
 tts_dropout = 0.5
-tts_cleaner_names = ['english_cleaners']
+tts_cleaner_names = ['basic_cleaners']
 tts_stop_threshold = -3.4           # Value below which audio generation ends.
                                     # For example, for a range of [-4, 4], this
                                     # will terminate the sequence at the first
