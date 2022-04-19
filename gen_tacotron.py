@@ -9,6 +9,7 @@ from utils.text import text_to_sequence
 from utils.display import save_attention, simple_table
 from utils.dsp import reconstruct_waveform, save_wav
 import numpy as np
+from tts_front_end import text_to_pinyin
 
 if __name__ == "__main__":
 
@@ -112,10 +113,14 @@ if __name__ == "__main__":
     tts_model.load(tts_load_path)
 
     if input_text:
-        inputs = [text_to_sequence(input_text.strip(), hp.tts_cleaner_names)]
+        inputs = [text_to_sequence(text_to_pinyin(input_text.strip()), hp.tts_cleaner_names)]
     else:
+        inputs = []
         with open('sentences.txt') as f:
-            inputs = [text_to_sequence(l.strip(), hp.tts_cleaner_names) for l in f]
+            for l in f:
+                l2 = text_to_pinyin(l.strip())
+                seq = text_to_sequence(l2, ['basic_cleaners'])
+                inputs.append(seq)
 
     if args.vocoder == 'wavernn':
         voc_k = voc_model.get_step() // 1000
