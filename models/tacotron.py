@@ -308,7 +308,8 @@ class Tacotron(nn.Module):
         self.decoder.r = self.decoder.r.new_tensor(value, requires_grad=False)
 
     def forward(self, x, m, generate_gta=False):
-        device = next(self.parameters()).device  # use same device as parameters
+        #device = next(self.parameters()).device  # use same device as parameters
+        device = next(self.parameters()).device
 
         self.step += 1
 
