@@ -159,7 +159,7 @@ if __name__ == "__main__":
         if input_text:
             save_path = paths.tts_output/f'__input_{input_text[:10]}_{v_type}_{tts_k}k.wav'
         else:
-            save_path = paths.tts_output/f'{i}_{v_type}_{tts_k}k.wav'
+            save_path = paths.tts_output/f'{i}_{v_type}_tac{tts_k}k_wr{voc_k}.wav'
 
         if save_attn: save_attention(attention, save_path)
 
