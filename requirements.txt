@@ -5,3 +5,4 @@ unidecode
 inflect
 nltk
 pypinyin==0.40.0
+falcon
